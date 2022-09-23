@@ -27,6 +27,8 @@ http:dockerserveraddress:8080?ref=testref
 
 Where **testref** is the reference to be translated into a QR code.
 
+Once the document is filled and scanned, the resulting jpeg is then used to output text using the script **pdfscan/scan.py**
+
 # Demonstration
 
 This demonstration takes the following jpg:
@@ -51,5 +53,24 @@ https://github.com/RamSailopal/Doc-Scan/blob/main/pdfscan/pdfscanout1.txt
 
 With original scaling and no loss of quality, the QR code is processed correctly as well as the printed text. The mouse written text is again "patchy"
 
+# Running you own examples
+
+Once a form is printed, filled and scanned, add it to the pdfscan folder and change the referenced image paths in the script **pdfscan/scan.py** to the paths of the jpeg you created. Once this has been done run:
+
+    docker exec -it pdfscan /bin/bash -c 'cd /home/pdfscan && python3 scan.py > someout.txt'
+
+# Improvements
+
+In terms of hand written text, tesseract can be improved with "training" - https://tesseract-ocr.github.io/tessdoc/tess4/TrainingTesseract-4.00.html
+
+# References
+
+Tesseract - https://tesseract-ocr.github.io/
+
+Python Tesseract - https://pypi.org/project/pytesseract/
+
+OpenCV QR Code detection - https://docs.opencv.org/4.x/de/dc3/classcv_1_1QRCodeDetector.html
+
+Web QR Code generator - https://github.com/kazuhikoarase/qrcode-generator
 
 
