@@ -21,7 +21,7 @@ Once the web form is then printed, filled out by hand and scanned as a jpg, it i
 
 The script **pdfconvert/convert.py** is used to generate the initial jpeg.
 
-The web form and then be viewed in a browser by navigating to:
+The web form can then be viewed in a browser by navigating to:
 
 http:dockerserveraddress:8080?ref=testref
 
@@ -41,7 +41,7 @@ https://github.com/RamSailopal/Doc-Scan/blob/main/pdfscan/pdfscanout.txt
 
 # Findings
 
-The initial web form had to scaled out to display on one page and this effected the quality of the jpeg and subsequently the OCR results. Printed text was fine, but had written text proved difficult to process acccurates. QR codes were not processes at all.
+The initial web form had to be scaled out to display on one page and this effected the quality of the jpeg and subsequently the OCR results. Printed text was fine, but hand written text proved difficult to process acccuratly. QR codes were not processed at all.
 
 As a comparison, A "screen grab" of part of the web form was taken and then the mouse used to add text (as if it were a pen). The resulting jpg can be viewed here:
 
