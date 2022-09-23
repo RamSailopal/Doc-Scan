@@ -53,7 +53,7 @@ https://github.com/RamSailopal/Doc-Scan/blob/main/pdfscan/pdfscanout1.txt
 
 With original scaling and no loss of quality, the QR code is processed correctly as well as the printed text. The mouse written text is again "patchy"
 
-# Running you own examples
+# Running your own examples
 
 Once a form is printed, filled and scanned, add it to the pdfscan folder and change the referenced image paths in the script **pdfscan/scan.py** to the paths of the jpeg you created. Once this has been done run:
 
