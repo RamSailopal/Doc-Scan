@@ -1,0 +1,49 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/Product">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=Utf-8">
+  <script type="text/javascript" src="qrcode.js"></script>
+  <script type="text/javascript" src="qrcode_SJIS.js"></script>
+  <script type="text/javascript" src="sample.js"></script>
+  <link rel="stylesheet" src="style.css" type="text/css" />
+  <title itemprop="name">QR Code Generator</title>
+
+  <script type="text/javascript">
+  var initial_qrcode = function() {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariable = sPageURL.split('=');
+    var text=sURLVariable[1];
+    var form = document.forms['qrForm'];
+    var text1 = text.
+    replace(/^[\s\u3000]+|[\s\u3000]+$/g, '');
+    var t = "";
+    var e = "M";
+    var m = "Byte";
+    var mb = "UTF-8";
+    document.getElementById('qr').innerHTML =
+    create_qrcode(text1, t, e, m, mb);
+    document.getElementById('qrcode-text').value=text;
+  };
+
+  </script>
+</head>
+
+<body onload='initial_qrcode()' >
+
+<div class="section">
+    <form name="qrForm">
+        <br/>
+        <div id="qr"></div>
+        <input type="text" value="" id="qrcode-text" disabled="disabled">
+      </form>
+ 
+</div>
+
+<div>
+  <img src="page0.jpg"/>
+</div>
+
+</body>
+
+</html>

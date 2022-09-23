@@ -1,0 +1,44 @@
+#
+#       AUTHOR - Raman Sailopal
+#
+version: "2"
+services:
+ pdfconvert:
+   hostname: pdfconvert
+   container_name: pdfconvert
+   image: docker.io/ubuntu
+   volumes:
+     - "$PWD/pdfconvert:/home/pdfconvert"
+   networks:
+      - pdfscan
+   mem_limit: 1G
+   entrypoint: [ "/bin/bash", "-c", "/home/pdfconvert/entrypoint.sh" ]
+
+ pdfscan:
+   hostname: pdfscan
+   container_name: pdfscan
+   image: docker.io/ubuntu
+   volumes:
+     - "$PWD/pdfscan:/home/pdfscan"
+   networks:
+      - pdfscan
+   mem_limit: 1G
+   entrypoint: [ "/bin/bash", "-c", "/home/pdfscan/entrypoint.sh" ]
+
+
+ webserver:
+   hostname: webserver
+   container_name: webserver
+   image: docker.io/ubuntu
+   volumes:
+     - "$PWD/pdfconvert:/home/pdfconvert"
+     - "$PWD/webserver:/home/webserver"
+   ports:
+     - 8080:80
+   networks:
+      - pdfscan
+   mem_limit: 1G
+   entrypoint: [ "/bin/bash", "-c", "/home/webserver/entrypoint.sh" ]
+
+networks:
+    pdfscan:
