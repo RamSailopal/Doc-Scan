@@ -55,9 +55,15 @@ With original scaling and no loss of quality, the QR code is processed correctly
 
 # Running your own examples
 
-Once a form is printed, filled and scanned, add it to the pdfscan folder and change the referenced image paths in the script **pdfscan/scan.py** to the paths of the jpeg you created. Once this has been done run:
+Once a form is printed, filled and scanned, add it to the pdfscan folder. Once this has been done run:
 
-    docker exec -it pdfscan /bin/bash -c 'cd /home/pdfscan && python3 scan.py > someout.txt'
+    docker exec -it pdfscan /bin/bash -c 'cd /home/pdfscan && python3 scan1.py <imagefilename> > <nameofoutputfile>'
+    
+i.e.
+
+    docker exec -it pdfscan /bin/bash -c 'cd /home/pdfscan && python3 scan1.py scannedimage.jpg > outputtext.txt'
+    
+The output data will then be available to be viewed in the file **pdfscan/outputtext.txt**
 
 # Improvements
 
